@@ -17,10 +17,10 @@ for index, row in df.iterrows():
     pdf.set_text_color(100,100,100)
     pdf.cell(w=0, h=10, txt=row['Topic'], ln=1, align='R')
     #Adding reccuring lines throughout the main pages - METHOD 1
-    b = 32
-    while b < 280:
+    b = 31
+    while b < 290:
         pdf.line(x1=10, x2=200, y1=b, y2=b)
-        b = b+10
+        b = b + 10
 
 #Adding necessary number of pages as taken from the data.csv file and
 #setting footer
