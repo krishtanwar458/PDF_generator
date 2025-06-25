@@ -10,6 +10,9 @@ for index, row in df.iterrows():
     pdf.set_font(family='Times', size=24, style='IB')
     pdf.cell(w=0, h=12, txt=row['Topic'], ln=1, align='L')
     pdf.line(x1=10, y1=21, x2=200, y2=21)
+    a = df['Pages'][index]
+    for index in range(a-1):
+        pdf.add_page()
 
 pdf.output('output.pdf')
 
