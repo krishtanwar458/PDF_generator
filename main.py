@@ -6,7 +6,7 @@ df = pd.read_csv('topics.csv')
 pdf = FPDF(orientation='P', unit='mm', format='A4')
 pdf.set_auto_page_break(auto=False, margin=0)
 
-#Setting 1 page and footer for main page
+# Setting 1 page and footer for main page
 for index, row in df.iterrows():
     pdf.add_page()
     pdf.set_font(family='Times', size=24, style='IB')
@@ -22,8 +22,8 @@ for index, row in df.iterrows():
         pdf.line(x1=10, x2=200, y1=b, y2=b)
         b = b + 10
 
-#Adding necessary number of pages as taken from the data.csv file and
-#setting footer
+# Adding necessary number of pages as taken from the data.csv file and
+# setting footer
     a = df['Pages'][index]
     for index in range(a-1):
         pdf.add_page()
@@ -31,11 +31,11 @@ for index, row in df.iterrows():
         pdf.set_font(family='Times', size=8, style='I')
         pdf.set_text_color(100,100,100)
         pdf.cell(w=0, h=10, txt=row['Topic'], ln=1, align='R')
-        #Adding recurring lines throughout the secondary pages - METHOD 2
+        # Adding recurring lines throughout the secondary pages - METHOD 2
         for i in range(15, 280, 10):
             pdf.line(10, i, 200, i)
 
 pdf.output('output.pdf')
 
-#a = df['Pages'][0]
-#print(a)
+# a = df['Pages'][0]
+# print(a)
